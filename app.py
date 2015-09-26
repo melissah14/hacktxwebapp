@@ -2,35 +2,40 @@ import web
 from web import form
 render = web.template.render('templates/')
 
-myform = form.Form( 
-    form.Textbox("boe"), 
-    form.Textbox("bax", 
-        form.notnull,
-        form.regexp('\d+', 'Must be a digit'),
-        form.Validator('Must be more than 5', lambda x:int(x)>5)),
-    form.Textarea('moe'),
-    form.Checkbox('curly'), 
-    form.Dropdown('french', ['mustard', 'fries', 'wine'])) 
-
 urls = (
   '/print/(.*)', 'index',
   '/loginuser/(.*)/(.*)', 'login',
-  '/form/', 'formtest'
+  '/login/', 'login',
+  '/registration/', 'registration'
 )
+
+myform = form.Form( 
+    form.Textbox('Username', description="username"),
+    form.Password('Password', description="password"),
+    form.Button('Login', description="login"),
+    form.Button('New User?', description="new user", id="newuser")
+)
+
+newUser = form.Form(
+    form.Textbox('First name: ', description="enter your first name"),
+    form.Textbox('Last name: ', description="enter your last name"),
+    form.Dropdown('personid',[('Tutor','tutor'),('Student','student')]),
+    form.Password('Enter your password', description="enter a password")
+)
+
 class index:
     def GET(self, name):
         return render.index(name)
 
 
 class login:
-    def GET(self, user, pw):
-        print user
-        print pw
-        return
-class formtest:
 	def GET(self):
-		form=myform()
-		return render.formtest(form)
+		f=myform()
+		return render.formtest(f)
+class registration:
+    def GET(self):
+        f=newUser()
+        return render.regForm(f)
 
 
 if __name__ == "__main__":

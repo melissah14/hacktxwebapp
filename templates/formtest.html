@@ -1,0 +1,19 @@
+$def with (form)
+<html>
+	<script src="/static/jquery-1.11.3.min.js" type="text/javascript"></script>
+	<h1>Log In</h1>
+	<a href= /registration/> click me </a>
+	<form method="Login">
+		$:form.render()
+	</form>
+	<script>
+		var url = "/registration/";
+		$$(document).ready(function() {
+			$$("#newuser").click(function() {
+				alert("balls");
+				//window.location.href=/registration/;
+				$$(location).attr('href',url);
+			});
+		});	
+	</script>
+<html>
