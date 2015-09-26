@@ -7,7 +7,7 @@ urls = (
 
 class index:
     def GET(self):
-        name = "arjun"
+        name = "friend"
         return render.index(name);
 
 
