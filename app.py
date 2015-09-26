@@ -1,4 +1,5 @@
 import web 
+render = web.template.render('templates/')
 
 urls = (
   '/', 'index'
@@ -6,7 +7,8 @@ urls = (
 
 class index:
     def GET(self):
-        return "Hello, world!"
+        name = "arjun"
+        return render.index(name);
 
 
 if __name__ == "__main__":
