@@ -1,14 +1,20 @@
-import web 
+import web
+import sys
+sys.path.append('/usr/local/mysql/lib') 
+#import mySql
 render = web.template.render('templates/')
 
+db = web.database(dbn='mysql', user='username', pw='password', db='userAut')
+
 urls = (
-  '/print/(.*)', 'index',
+  '/', 'index',
   '/loginuser/(.*)/(.*)', 'login'
 )
 
 class index:
-    def GET(self, name):
-        return render.index(name)
+    def GET(self):
+        auths = db.select('userAut');
+        return render.index(auths);
 
 
 class login:
