@@ -17,10 +17,10 @@ myform = form.Form(
 )
 
 newUser = form.Form(
-    form.Textbox('First name: ', description="enter your first name"),
-    form.Textbox('Last name: ', description="enter your last name"),
-    form.Dropdown('personid',[('Tutor','tutor'),('Student','student')]),
-    form.Password('Enter your password', description="enter a password")
+    form.Textbox('First name: ', description="First Name"),
+    form.Textbox('Last name: ', description="Last Name"),
+    form.Dropdown('Account Type',[('Tutor','Tutor'),('Student','Student')]),
+    form.Password('Enter your password', description="Password")
 )
 
 class index:
