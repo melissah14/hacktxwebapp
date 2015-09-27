@@ -19,10 +19,8 @@ urls = (
 )
 
 myform = form.Form( 
-    form.Textbox('Username', description="username"),
-    form.Password('Password', description="password"),
-    form.Button('Login', description="login"),
-    form.Button('New User?', description="new user", id="newuser")
+    form.Textbox('Username', description="Username"),
+    form.Password('Password', description="Password"),
 )
 
 newUser = form.Form(
