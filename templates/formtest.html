@@ -1,19 +1,54 @@
 $def with (form)
 <html>
-	<script src="/static/jquery-1.11.3.min.js" type="text/javascript"></script>
-	<h1>Log In</h1>
-	<a href= /registration/> click me </a>
-	<form method="Login">
-		$:form.render()
-	</form>
-	<script>
-		var url = "/registration/";
-		$$(document).ready(function() {
-			$$("#newuser").click(function() {
-				alert("balls");
-				//window.location.href=/registration/;
-				$$(location).attr('href',url);
-			});
-		});	
+	<body>
+		<script src="/static/jquery-1.11.3.min.js" type="text/javascript"></script>
+		<div id="login">
+			<h1 id="LoginText">Log In</h1>
+			<form method="Login">
+				$:form.render()
+				<button type="button" id="LogInButtton">Log in</button>
+			</form>
+		</div>
+		<a href= /registration/> Need to Register? Click here. </a>
+		<script>
+			var url = "/registration/";
+			$$(document).ready(function() {
+				$$("#newuser").click(function() {
+					alert("balls");
+					//window.location.href=/registration/;
+					$$(location).attr('href',url);
+				});
+			});	
 	</script>
+	</body>
 <html>
+
+<style>
+	body{
+		position: relative;
+		background-color:#FF9966;
+		margin:auto;
+		padding:10px;
+	}
+
+	#login {
+		position:absolute;
+		border-style:solid;
+		border-radius: 25px;
+		top: 50%;
+		left:50%;
+		transform: translate(-50%,-50%);
+	}
+	#LoginText{
+		text-align:center;
+		font-family: Garamond;
+	}
+
+	#LogInButton{
+		width: 100px;
+		position:absolute;
+		top: 50%;
+		left:50%;
+		transform: translate(-50%,-50%);
+	}
+	</style>
